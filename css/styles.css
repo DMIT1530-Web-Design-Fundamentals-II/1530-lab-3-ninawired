@@ -1,4 +1,4 @@
-/* NOTE: Make sure that when you complete your Lab, you leave a comment at the top of this file listing which new properties you used! */
+/* I used the animate css property along with the @keyframes to make the call to action box slide in from the bottom*/
 
 :root {
   --dk-grey: #263238;
@@ -6,4 +6,246 @@
   --yellow: #FDD835;
   --green: #8BC34A;
   --white: #FAFAFA;
+}
+
+/* Utility Classes */
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inner-container {
+  margin: auto;
+  max-width: 40rem;
+  padding: 3rem 1rem;
+}
+
+header .inner-container {
+  padding: unset;
+}
+
+.hidden{
+  left: -9999px;
+  position: absolute;
+  top: -9999px;
+}
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-box {
+  max-width: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  background-color: var(--white);
+  padding: 4rem;
+  margin: 1rem;
+  box-shadow: #263238;
+  border-radius: 5px;
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Typography */
+
+body {
+  background-color: var(--white);
+  color: var(--dk-grey);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+/* Header & Navigation */
+
+header {
+  background-color: var(--dk-grey);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.menu-icon {
+  color: var(--white);
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-transform: lowercase;
+}
+
+svg,
+header img {
+    max-width: 2rem;
+}
+
+.red {
+  color: var(--hot-pink)
+}
+
+.first-link {
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.first-link img {
+  width: 1rem;
+  margin: 0 1rem;
+}
+
+
+/* Main */
+
+.hero-container {
+  background-image: url(/img/crowd-background.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 100vh;
+}
+
+.flex-box h2 a{
+  color: var(--dk-grey);
+}
+
+.btn {
+  background: linear-gradient(270deg, var(--yellow) 0%, var(--hot-pink) 100%);
+  box-shadow: 5px 10px;
+  color: var(--white);
+  font-weight: 700;
+  padding: 1rem 3rem;
+  border-radius: 50rem;
+ 
+}
+
+
+/* Mobile View */
+
+.first-link img,
+a span {
+    display: none;
+}
+
+.red {
+  display: inline;
+}
+
+nav {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    background-color: var(--dk-grey);
+}
+
+.show-nav {
+    max-height: unset;
+    overflow: visible;
+}
+
+nav li {
+    margin: 1rem 0;
+    padding: 0 1rem;
+}
+
+nav li a {
+    display: block;
+}
+
+
+/* Media Queries*/
+
+@media screen and (min-width: 59.375rem) {
+  .wide-flex {
+      display: flex;
+      align-items: flex-start;
+  }
+
+  header div.inner-container {
+      max-width: 60rem;
+  }
+
+  header div.inner-container > .flex-container {
+      flex: 1 0 auto;
+  }
+
+  .menu-icon {
+      display: none;
+  }
+
+  .first-link img,
+  a span {
+      display: unset;
+  }
+
+  nav {
+      justify-content: flex-end;
+      position: static;
+      overflow: visible;
+      white-space: nowrap;
+  }
+
+  nav ul li {
+      list-style-type: none;
+  }
+
+  .main-menu {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0;
+  }
+
+  .main-menu li {
+      position: relative;
+  }
+
+  .main-menu > li {
+      margin: 1rem;
+  }
+
+  .second-tier {
+      min-width: 100%;
+      background-color: var(--dk-grey);
+      padding: 1rem;
+      position: absolute;
+      visibility: hidden;
+  }
+
+  .main-menu li:hover > .second-tier {
+      visibility: visible;
+  }
 }
